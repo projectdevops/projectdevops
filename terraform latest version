@@ -1,0 +1,7 @@
+bash                                                                                                                                                   
+curl https://releases.hashicorp.com/terraform/ | grep terraform | cut -d/ -f3 | grep -v - > text.txt                                                          
+variable=$(head -1 text.txt)                                                                                                                                  
+wget https://releases.hashicorp.com/terraform/$variable                                                                                                       
+unzip terraform_${variable}_linux_amd64.zip                                                                                                                   
+sudo mv terraform /usr/local/bin/                                                                                                                             
+terraform -v                                                                                                                                                  
